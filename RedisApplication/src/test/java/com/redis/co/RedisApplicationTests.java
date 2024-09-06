@@ -1,10 +1,10 @@
-package com.employee;
+package com.redis.co;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EmployeeApplicationTests {
+class RedisApplicationTests {
 
 	@Test
 	void contextLoads() {
