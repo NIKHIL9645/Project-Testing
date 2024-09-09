@@ -1,0 +1,10 @@
+#spring.application.name=KanbanService
+
+spring:
+  application:
+    name: KanbanService
+
+
+
+server:
+  port: 8004

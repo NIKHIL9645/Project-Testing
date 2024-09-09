@@ -1,0 +1,52 @@
+
+  spring:
+    application:
+      name: commentservice
+
+    datasource:
+      url: jdbc:postgresql://localhost:5432/commentservice
+      username: postgres
+      password: Nikhil@12345
+      driver-class-name: org.postgresql.Driver
+
+    jpa:
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+      hibernate:
+        ddl-auto: update
+      show-sql: true
+
+
+
+  server:
+    port: 8003
+#  cloud:
+#    discovery:
+#      enabled: true
+#
+#
+#
+#  profiles:
+#    active:
+#    - dev
+#
+#
+#server:
+#  port: 5016
+#
+#---
+##DEV Environment
+#
+#spring:
+#  config:
+#    activate:
+#      on-profile:
+#      - dev
+#  data:
+#    mongodb:
+#      database: UserComments
+#      uri: mongodb+srv://yogeshdb94:Pb33NUMfleGCQD5h@yobrand.sclaqfz.mongodb.net/?retryWrites=true&w=majority&appName=YoBrand
+#      auto-index-creation: true
+#---
+#

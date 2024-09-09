@@ -1,0 +1,22 @@
+#spring.application.name=JwtExample
+
+
+spring:
+  application:
+    name: JwtExample
+  datasource:
+    url: jdbc:mysql://localhost:3306/jwtexampleapplication
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: Nikhil@12345
+  jpa:
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.MySQL8Dialect  # Specify your Hibernate dialect here
+    show-sql: true
+  main:
+    allow-bean-definition-overriding: true
+
+server:
+  port: 8081
+

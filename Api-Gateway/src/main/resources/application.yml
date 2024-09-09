@@ -1,0 +1,159 @@
+#server:
+#  port: 9000
+#
+##spring:
+##  main:
+##    allow-bean-definition-overriding: true
+#
+#Spring:
+#  application:
+#    name: Api-Gateway
+#
+#  cloud:
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true  # Enable service discovery
+#      routes:
+#        - id: JwtExampleAuth
+#          uri: lb://JwtExample  # Load balanced URI for JwtExample Service
+#          predicates:
+#            - Path=/auth/**  # Route for /auth/** endpoints
+##          filters:
+##            - name: AuthenticationFilter
+#
+#        - id: JwtExampleHome
+#          uri: lb://JwtExample  # Load balanced URI for JwtExample Service
+#          predicates:
+#            - Path=/home/**  # Route for /home/** endpoints
+#          # Filters can be added here if needed
+#          # filters:
+#          #   - name: AuthenticationFilter
+#          #     args:
+#          #       role: ROLE_ADMIN
+#
+#        - id: ProjectService
+#          uri: lb://projectservice  # Load balanced URI for Project Service
+#          predicates:
+#            - Path=/projectservice/**  # Route for /projectservice/** endpoints
+#          filters:
+#            - name: AuthenticationFilter
+#              Args:
+#                role: ROLE_ADMIN
+#
+#        # Uncomment and configure if commentservice is used
+#        # - id: CommentService
+#        #   uri: lb://commentservice  # Load balanced URI for Comment Service
+#        #   predicates:
+#        #     - Path=/commentservice/**
+#
+#  eureka:
+#    client:
+#      service-url:
+#        defaultZone: http://localhost:8761/eureka  # Eureka server URL
+#      enabled: true
+#
+
+
+server:
+  port: 9000
+spring:
+#  main:
+  #    allow-bean-definition-overriding: true
+  application:
+    name: Api-Gateway
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true   # Ensure service discovery is enabled
+      routes:
+        - id: JwtExample
+          uri: lb://JwtExample  # Load balanced URI for Project Servicea
+          predicates:
+            - Path=/auth/**
+#          filters:
+#            - name: AuthenticationFilter
+
+
+        - id: JwtExample
+          uri: lb://JwtExample  # Load balanced URI for Task Service
+          predicates:
+            - Path=/home/**
+          filters:
+            - name: AuthenticationFilter
+              args:
+                role: ROLE_ADMIN
+
+
+        - id: projectservice
+          uri: lb://projectservice  # Load balanced URI for Project Service
+          predicates:
+            - Path=/projects/**
+          filters:
+            - name: AuthenticationFilter
+              args:
+                role: ROLE_USER,ROLE_ADMIN
+
+        - id: taskservice
+          uri: lb://taskservice  # Load balanced URI for Project Service
+          predicates:
+            - Path=/taskservice/**
+          filters:
+            - name: AuthenticationFilter
+              args:
+                role: ROLE_USER
+
+
+        - id: KanbanService
+          uri: lb://KanbanService  # Load balanced URI for Project Service
+          predicates:
+            - Path=/kanban/**
+          filters:
+            - name: AuthenticationFilter
+              args:
+                role: ROLE_USER
+
+
+        - id: commentservice
+          uri: lb://commentservice  # Load balanced URI for Project Service
+          predicates:
+            - Path=/commentservice/**
+          filters:
+            - name: AuthenticationFilter
+              args:
+                role: ROLE_USER
+
+
+        - id: ElasticSearch
+          uri: lb://ElasticSearch  # Load balanced URI for Project Service
+          predicates:
+            - Path=/elasticsearch/**
+          filters:
+            - name: AuthenticationFilter
+              args:
+                role: ROLE_USER,ROLE_ADMIN
+
+
+
+#                role: ROLE_USER,ROLE_ADMIN
+
+
+
+#                role: ROLE_ADMIN
+
+
+
+#
+#        - id: commentservice
+#          uri: lb://commentservice  # Load balanced URI for Project Service
+#          predicates:
+#            - Path=/commentservice/**
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka  # Eureka server URL
+    enabled: true

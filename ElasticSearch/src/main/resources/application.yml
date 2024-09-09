@@ -1,0 +1,73 @@
+
+server:
+  port: 8007
+
+spring:
+  application:
+    name: ElasticSearch
+
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: search-topic-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    # properties:
+    #   spring:
+    #     json:
+    #       trusted:
+    #         packages: "*"
+  data:
+    elasticsearch:
+      client:
+        uris: http://localhost:9200 # URL of your Elasticsearch instance
+      repositories:
+        enabled: true # Enable Elasticsearch repositories
+
+elasticsearch:
+  cluster-name: search-cluster # Name of your Elasticsearch cluster
+  host: l
+
+
+#
+#server:
+#  port: 8007
+#
+#
+#spring:
+#  application:
+#    name: ElasticSearch
+#
+#
+#
+#    kafka:
+#      consumer:
+#        bootstrap-servers:
+#          - localhost:9092
+#        group-id: search-topic-group
+#        auto-offset-reset: earliest
+#        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#    #      properties:
+#    #        spring:
+#    #          json:
+#    #            trusted:
+#    #              packages: "*"
+#    data:
+#      elasticsearch:
+#        client:
+#          uris: http://localhost:9200 # URL of your Elasticsearch instance
+#        repositories:
+#          enabled: true # Enable Elasticsearch repositories
+#  elasticsearch:
+#    cluster-name: search-cluster # Name of your Elasticsearch cluster
+#    host: localhost # Hostname of your Elasticsearch node
+#    port: 9200 # Port of your Elasticsearch node
+#  #  username: elastic # Optional: Username for Elasticsearch authentication
+#  #  password: changeme # Optional: Password for Elasticsearch authentication
+#  #ingest.geoip.downloader.enabled: false
+#  #xpack.security.enabled: false
+#  #xpack.security.transport.ssl.enabled: false
+#  #xpack.security.http.ssl.enabled: false
+#  has context menu
